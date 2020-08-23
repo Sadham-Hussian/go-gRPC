@@ -1,4 +1,4 @@
-package arithmeticserver
+package main
 
 import (
 	"context"
@@ -7,7 +7,6 @@ import (
 	"github.com/Sadham-Hussian/go-gRPC/unary/arithmetic/proto"
 
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
 )
 
 type server struct{}
@@ -17,10 +16,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	srv := grpc.NewServer()
 	proto.RegisterAddServiceServer(srv, &server{})
-	reflection.Register(srv)
+	// reflection.Register(srv)
 
 	if err := srv.Serve(listener); err != nil {
 		panic(err)
