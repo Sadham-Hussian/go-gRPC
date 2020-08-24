@@ -133,13 +133,13 @@ var file_service_proto_rawDesc = []byte{
 	0x69, 0x6d, 0x65, 0x72, 0x22, 0x29, 0x0a, 0x11, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77,
 	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75,
 	0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x32,
-	0x52, 0x0a, 0x08, 0x43, 0x6f, 0x75, 0x6e, 0x64, 0x6f, 0x77, 0x6e, 0x12, 0x46, 0x0a, 0x05, 0x53,
-	0x74, 0x61, 0x72, 0x74, 0x12, 0x1b, 0x2e, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e,
-	0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x1c, 0x2e, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x2e, 0x43, 0x6f,
-	0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x00, 0x30, 0x01, 0x42, 0x0d, 0x5a, 0x0b, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e,
-	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x53, 0x0a, 0x09, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x12, 0x46, 0x0a, 0x05,
+	0x53, 0x74, 0x61, 0x72, 0x74, 0x12, 0x1b, 0x2e, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77,
+	0x6e, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x2e, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x30, 0x01, 0x42, 0x0d, 0x5a, 0x0b, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x64, 0x6f, 0x77,
+	0x6e, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -160,8 +160,8 @@ var file_service_proto_goTypes = []interface{}{
 	(*CountdownResponse)(nil), // 1: countdown.CountdownResponse
 }
 var file_service_proto_depIdxs = []int32{
-	0, // 0: countdown.Coundown.Start:input_type -> countdown.CountdownRequest
-	1, // 1: countdown.Coundown.Start:output_type -> countdown.CountdownResponse
+	0, // 0: countdown.Countdown.Start:input_type -> countdown.CountdownRequest
+	1, // 1: countdown.Countdown.Start:output_type -> countdown.CountdownResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -228,27 +228,27 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// CoundownClient is the client API for Coundown service.
+// CountdownClient is the client API for Countdown service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type CoundownClient interface {
-	Start(ctx context.Context, in *CountdownRequest, opts ...grpc.CallOption) (Coundown_StartClient, error)
+type CountdownClient interface {
+	Start(ctx context.Context, in *CountdownRequest, opts ...grpc.CallOption) (Countdown_StartClient, error)
 }
 
-type coundownClient struct {
+type countdownClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCoundownClient(cc grpc.ClientConnInterface) CoundownClient {
-	return &coundownClient{cc}
+func NewCountdownClient(cc grpc.ClientConnInterface) CountdownClient {
+	return &countdownClient{cc}
 }
 
-func (c *coundownClient) Start(ctx context.Context, in *CountdownRequest, opts ...grpc.CallOption) (Coundown_StartClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Coundown_serviceDesc.Streams[0], "/countdown.Coundown/Start", opts...)
+func (c *countdownClient) Start(ctx context.Context, in *CountdownRequest, opts ...grpc.CallOption) (Countdown_StartClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Countdown_serviceDesc.Streams[0], "/countdown.Countdown/Start", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &coundownStartClient{stream}
+	x := &countdownStartClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -258,16 +258,16 @@ func (c *coundownClient) Start(ctx context.Context, in *CountdownRequest, opts .
 	return x, nil
 }
 
-type Coundown_StartClient interface {
+type Countdown_StartClient interface {
 	Recv() (*CountdownResponse, error)
 	grpc.ClientStream
 }
 
-type coundownStartClient struct {
+type countdownStartClient struct {
 	grpc.ClientStream
 }
 
-func (x *coundownStartClient) Recv() (*CountdownResponse, error) {
+func (x *countdownStartClient) Recv() (*CountdownResponse, error) {
 	m := new(CountdownResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -275,52 +275,52 @@ func (x *coundownStartClient) Recv() (*CountdownResponse, error) {
 	return m, nil
 }
 
-// CoundownServer is the server API for Coundown service.
-type CoundownServer interface {
-	Start(*CountdownRequest, Coundown_StartServer) error
+// CountdownServer is the server API for Countdown service.
+type CountdownServer interface {
+	Start(*CountdownRequest, Countdown_StartServer) error
 }
 
-// UnimplementedCoundownServer can be embedded to have forward compatible implementations.
-type UnimplementedCoundownServer struct {
+// UnimplementedCountdownServer can be embedded to have forward compatible implementations.
+type UnimplementedCountdownServer struct {
 }
 
-func (*UnimplementedCoundownServer) Start(*CountdownRequest, Coundown_StartServer) error {
+func (*UnimplementedCountdownServer) Start(*CountdownRequest, Countdown_StartServer) error {
 	return status.Errorf(codes.Unimplemented, "method Start not implemented")
 }
 
-func RegisterCoundownServer(s *grpc.Server, srv CoundownServer) {
-	s.RegisterService(&_Coundown_serviceDesc, srv)
+func RegisterCountdownServer(s *grpc.Server, srv CountdownServer) {
+	s.RegisterService(&_Countdown_serviceDesc, srv)
 }
 
-func _Coundown_Start_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _Countdown_Start_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(CountdownRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(CoundownServer).Start(m, &coundownStartServer{stream})
+	return srv.(CountdownServer).Start(m, &countdownStartServer{stream})
 }
 
-type Coundown_StartServer interface {
+type Countdown_StartServer interface {
 	Send(*CountdownResponse) error
 	grpc.ServerStream
 }
 
-type coundownStartServer struct {
+type countdownStartServer struct {
 	grpc.ServerStream
 }
 
-func (x *coundownStartServer) Send(m *CountdownResponse) error {
+func (x *countdownStartServer) Send(m *CountdownResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-var _Coundown_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "countdown.Coundown",
-	HandlerType: (*CoundownServer)(nil),
+var _Countdown_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "countdown.Countdown",
+	HandlerType: (*CountdownServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "Start",
-			Handler:       _Coundown_Start_Handler,
+			Handler:       _Countdown_Start_Handler,
 			ServerStreams: true,
 		},
 	},

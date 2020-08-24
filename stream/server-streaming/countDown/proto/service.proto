@@ -12,6 +12,6 @@ message CountdownResponse {
 	int64 count = 1;
 }
 
-service Coundown {
+service Countdown {
 	rpc Start(CountdownRequest) returns (stream CountdownResponse){};
 }
